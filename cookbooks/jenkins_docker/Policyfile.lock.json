@@ -1,8 +1,8 @@
 {
-  "revision_id": "0b7a8aed006f8d37017fa7f1a2751aae0ae92abbd3dac14e7c53cd28b5e445fa",
-  "name": "minio",
+  "revision_id": "2ce99d5144dc9438eb5f22b6df5cd11665a8def34e5fadaa79b511310a6affc1",
+  "name": "jenkins_docker",
   "run_list": [
-    "recipe[minio::default]"
+    "recipe[jenkins_docker::default]"
   ],
   "included_policy_locks": [
 
@@ -29,7 +29,7 @@
         "scm": "git",
         "remote": "git@github.com:codayblue/codayblue_chef_repo.git",
         "revision": "98df7e86433bf9f8d9a94584fc7e0f17c0c64c74",
-        "working_tree_clean": false,
+        "working_tree_clean": true,
         "published": true,
         "synchronized_remote_branches": [
           "origin/master"
@@ -39,17 +39,17 @@
         "path": "../docker_setup"
       }
     },
-    "minio": {
+    "jenkins_docker": {
       "version": "1.0.0",
-      "identifier": "5776f5be7a7efbb18a6ef9fc23e76469879f99b9",
-      "dotted_decimal_identifier": "24619120808591099.49973280122872807.110404409727417",
+      "identifier": "dfed6a637b1fa256c5a97b1be514fa604808f73d",
+      "dotted_decimal_identifier": "63029960997805986.24424179702686996.275291432351549",
       "source": ".",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:codayblue/codayblue_chef_repo.git",
         "revision": "98df7e86433bf9f8d9a94584fc7e0f17c0c64c74",
-        "working_tree_clean": false,
+        "working_tree_clean": true,
         "published": true,
         "synchronized_remote_branches": [
           "origin/master"
@@ -77,7 +77,7 @@
         ">= 0.0.0"
       ],
       [
-        "minio",
+        "jenkins_docker",
         ">= 0.0.0"
       ]
     ],
@@ -91,7 +91,7 @@
           ">= 0.0.0"
         ]
       ],
-      "minio (1.0.0)": [
+      "jenkins_docker (1.0.0)": [
         [
           "docker",
           ">= 0.0.0"

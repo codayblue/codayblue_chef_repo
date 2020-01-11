@@ -1,6 +1,6 @@
 #
-# Cookbook:: minio
-# Recipe:: default
+# Cookbook:: jenkins_docker
+# Spec:: default
 #
 # The MIT License (MIT)
 #
@@ -24,26 +24,26 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-include_recipe 'docker_setup::default'
+require 'spec_helper'
 
-directory node['minio']['data_dir'] do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
+describe 'jenkins_docker::default' do
+  context 'When all attributes are default, on Ubuntu 18.04' do
+    # for a complete list of available platforms and versions see:
+    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
+    platform 'ubuntu', '18.04'
 
-docker_image 'minio/minio' do
-  tag node['minio']['version_tag']
-  action :pull
-end
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
+    end
+  end
 
-docker_container 'minio' do
-  repo 'minio/minio'
-  command 'server /data'
-  restart_policy 'always'
-  port "#{node['minio']['host_port']}:9000"
-  volumes ["#{node['minio']['data_dir']}:/data"]
-  tag node['minio']['version_tag']
-  action :run
+  context 'When all attributes are default, on CentOS 7' do
+    # for a complete list of available platforms and versions see:
+    # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
+    platform 'centos', '7'
+
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
+    end
+  end
 end

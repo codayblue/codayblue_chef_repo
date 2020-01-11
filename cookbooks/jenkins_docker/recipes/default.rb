@@ -1,5 +1,5 @@
 #
-# Cookbook:: minio
+# Cookbook:: jenkins_docker
 # Recipe:: default
 #
 # The MIT License (MIT)
@@ -26,24 +26,18 @@
 
 include_recipe 'docker_setup::default'
 
-directory node['minio']['data_dir'] do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
-
-docker_image 'minio/minio' do
-  tag node['minio']['version_tag']
+docker_image node['jenkins_setup']['jenkins_image'] do
+  tag node['jenkins_setup']['version_tag']
   action :pull
 end
 
-docker_container 'minio' do
-  repo 'minio/minio'
-  command 'server /data'
+docker_volume 'jenkins_home'
+
+docker_container 'jenkins' do
+  repo node['jenkins_setup']['jenkins_image']
+  tag node['jenkins_setup']['version_tag']
+  port ["#{node['jenkins_setup']['web_port']}:8080", "#{node['jenkins_setup']['slave_port']}:50000"]
+  volumes 'jenkins_home:/var/jenkins_home'
   restart_policy 'always'
-  port "#{node['minio']['host_port']}:9000"
-  volumes ["#{node['minio']['data_dir']}:/data"]
-  tag node['minio']['version_tag']
   action :run
 end
