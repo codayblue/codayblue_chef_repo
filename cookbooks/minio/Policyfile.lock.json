@@ -1,0 +1,103 @@
+{
+  "revision_id": "538f7e1f163612ddaacbe9c195de3e848d67e3893e2cec515ea0c9de71d77607",
+  "name": "minio",
+  "run_list": [
+    "recipe[docker_setup::default]",
+    "recipe[minio::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "docker": {
+      "version": "4.12.0",
+      "identifier": "9e1c0dfa3780f92f62ee1d189334b1b47c878c75",
+      "dotted_decimal_identifier": "44503892678377721.13338098735289140.195388741487733",
+      "cache_key": "docker-4.12.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/4.12.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/4.12.0/download",
+        "version": "4.12.0"
+      }
+    },
+    "docker_setup": {
+      "version": "1.0.0",
+      "identifier": "a6c8a36353a469a2483b1a9e49ce0b33f3b27d8b",
+      "dotted_decimal_identifier": "46945450205619305.45678364913977806.12317759798667",
+      "source": "../docker_setup",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": null,
+        "working_tree_clean": true,
+        "published": false,
+        "synchronized_remote_branches": [
+
+        ]
+      },
+      "source_options": {
+        "path": "../docker_setup"
+      }
+    },
+    "minio": {
+      "version": "1.0.0",
+      "identifier": "6597fff1ebf1620b673615c4db58248ab22aef9f",
+      "dotted_decimal_identifier": "28596098179002722.3209706734934872.40178113245087",
+      "source": ".",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": null,
+        "revision": null,
+        "working_tree_clean": true,
+        "published": false,
+        "synchronized_remote_branches": [
+
+        ]
+      },
+      "source_options": {
+        "path": "."
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "docker",
+        "= 4.12.0"
+      ],
+      [
+        "docker_setup",
+        ">= 0.0.0"
+      ],
+      [
+        "minio",
+        ">= 0.0.0"
+      ]
+    ],
+    "dependencies": {
+      "docker (4.12.0)": [
+
+      ],
+      "docker_setup (1.0.0)": [
+        [
+          "docker",
+          ">= 0.0.0"
+        ]
+      ],
+      "minio (1.0.0)": [
+        [
+          "docker",
+          ">= 0.0.0"
+        ]
+      ]
+    }
+  }
+}
