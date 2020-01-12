@@ -32,6 +32,8 @@ nodes
 # .vagrant
 # nodes
 # metadata.json
+policyfiles/*.lock.json
+build/
 
 # ##ruby
 # *.gem
@@ -122,3 +124,6 @@ nodes
 
 # ## Office Temp Files
 # ~$*
+
+# temp move to global gitignore
+.vscode/

@@ -1,5 +1,5 @@
 #
-# Cookbook:: minio
+# Cookbook:: cb_minio_setup
 # Recipe:: default
 #
 # The MIT License (MIT)
@@ -24,6 +24,26 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-default['minio']['data_dir'] = '/var/lib/minio'
-default['minio']['version_tag'] = 'latest'
-default['minio']['host_port'] = '9000'
+include_recipe 'cb_docker::default'
+
+directory node['cb_minio']['data_dir'] do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+docker_image 'minio/minio' do
+  tag node['cb_minio']['version_tag']
+  action :pull
+end
+
+docker_container 'minio' do
+  repo 'minio/minio'
+  command 'server /data'
+  restart_policy 'always'
+  port "#{node['cb_minio']['host_port']}:9000"
+  volumes ["#{node['cb_minio']['data_dir']}:/data"]
+  tag node['cb_minio']['version_tag']
+  action :run
+end

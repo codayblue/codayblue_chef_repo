@@ -1,4 +1,4 @@
-name 'minio'
+name 'cb_minio'
 maintainer 'Cody Moss'
 maintainer_email 'codayblue@gmail.com'
 license 'MIT'
@@ -7,7 +7,7 @@ version '1.0.0'
 chef_version '>= 14.0'
 
 depends 'docker'
-depends 'docker_setup'
+depends 'cb_docker'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when

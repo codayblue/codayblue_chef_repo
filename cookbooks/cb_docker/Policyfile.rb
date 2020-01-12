@@ -4,15 +4,14 @@
 # https://docs.chef.io/policyfile.html
 
 # A name that describes what the system you're building with Chef does.
-name 'jenkins_docker'
+name 'cb_docker'
 
 # Where to find external cookbooks:
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'jenkins_docker::default'
+run_list 'cb_docker::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'jenkins_docker', path: '.'
-cookbook 'docker_setup', path: '../docker_setup'
+cookbook 'cb_docker', path: '.'
 cookbook 'docker'

@@ -1,5 +1,5 @@
 #
-# Cookbook:: docker_setup
+# Cookbook:: cb_docker
 # Recipe:: default
 #
 # The MIT License (MIT)

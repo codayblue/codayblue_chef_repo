@@ -1,0 +1,106 @@
+{
+  "revision_id": "5efdc9808ecf74dbd73cf44859477312fb5fafdfce8c190185083e6665688638",
+  "name": "cb_jenkins",
+  "run_list": [
+    "recipe[cb_jenkins::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "cb_docker": {
+      "version": "1.0.0",
+      "identifier": "c2ca11ed78cdf8f134cde68341dc0ec742e7933e",
+      "dotted_decimal_identifier": "54828323829239288.67893528327569884.16248983753534",
+      "source": "../cb_docker",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": "git@github.com:codayblue/codayblue_chef_repo.git",
+        "revision": "8344824340969205316bde522811cf9f98869d3f",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/master"
+        ]
+      },
+      "source_options": {
+        "path": "../cb_docker"
+      }
+    },
+    "cb_jenkins": {
+      "version": "1.0.0",
+      "identifier": "1d3c3f9f9bb52918930abb8e0bb712d373c88354",
+      "dotted_decimal_identifier": "8229018282997033.6917073746660279.20699389920084",
+      "source": ".",
+      "cache_key": null,
+      "scm_info": {
+        "scm": "git",
+        "remote": "git@github.com:codayblue/codayblue_chef_repo.git",
+        "revision": "8344824340969205316bde522811cf9f98869d3f",
+        "working_tree_clean": false,
+        "published": true,
+        "synchronized_remote_branches": [
+          "origin/master"
+        ]
+      },
+      "source_options": {
+        "path": "."
+      }
+    },
+    "docker": {
+      "version": "4.12.0",
+      "identifier": "9e1c0dfa3780f92f62ee1d189334b1b47c878c75",
+      "dotted_decimal_identifier": "44503892678377721.13338098735289140.195388741487733",
+      "cache_key": "docker-4.12.0-supermarket.chef.io",
+      "origin": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/4.12.0/download",
+      "source_options": {
+        "artifactserver": "https://supermarket.chef.io:443/api/v1/cookbooks/docker/versions/4.12.0/download",
+        "version": "4.12.0"
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "cb_docker",
+        ">= 0.0.0"
+      ],
+      [
+        "cb_jenkins",
+        ">= 0.0.0"
+      ],
+      [
+        "docker",
+        "= 4.12.0"
+      ]
+    ],
+    "dependencies": {
+      "cb_docker (1.0.0)": [
+        [
+          "docker",
+          ">= 0.0.0"
+        ]
+      ],
+      "cb_jenkins (1.0.0)": [
+        [
+          "docker",
+          ">= 0.0.0"
+        ],
+        [
+          "cb_docker",
+          ">= 0.0.0"
+        ]
+      ],
+      "docker (4.12.0)": [
+
+      ]
+    }
+  }
+}
